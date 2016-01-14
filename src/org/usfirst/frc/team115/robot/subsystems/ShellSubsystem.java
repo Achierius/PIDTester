@@ -15,18 +15,22 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class ShellSubsystem extends Subsystem {
     
 	CANTalon tln;
-	
-	static FileWriter file = new FileWriter("C:\\Users\\MVRT\\Desktop\\dT.csv");
-    static PrintWriter print = new PrintWriter(file);
-	public ShellSubsystem()){
+
+	public ShellSubsystem(){
 		tln = new CANTalon(6);
 	}
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
 	public static void writeDT(double dt){
-		print.print(dt);
-		print.print(",");
+		try{
+			FileWriter File = new FileWriter("/dT.csv");
+			PrintWriter Print = new PrintWriter(File);
+			Print.print(dt);
+			Print.print(",");
+		}
+		catch(Exception e){}
+		
 	}
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

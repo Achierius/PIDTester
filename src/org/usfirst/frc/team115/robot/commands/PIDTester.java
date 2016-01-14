@@ -18,7 +18,7 @@ public class PIDTester extends PIDCommand{
 
 	@Override
 	protected double returnPIDInput() {
-		return Robot.exampleSubsystem.getPosition();
+			return 0;
 	}
 
 	@Override
